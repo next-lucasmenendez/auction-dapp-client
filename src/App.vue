@@ -5,39 +5,17 @@
 </template>
 
 <script>
-import Web3 from 'web3';
-import IPFS from 'ipfs';
-
+import AuctionContractAPI from '@/utils/AuctionContractAPI';
 
 export default {
     name: 'App',
     async mounted() {
-        const CID = 'QmWRLigQabGZUvtfxm4nPe23R9R5PRr8t7eR6nLK8xLi73';
+        const CID = 'Qmd6GeLzSotJoFthdoc4ffRhJAM59xPp4dvJGb58PaZZto';
+        const address = '0xd9145CCE52D386f254917e481eB44e9943F39138';
 
-        console.log('Connected to Metamask:' + await this.checkMetamask());
-        console.log('Contract content:', await this.getContract(CID));
-    },
-    methods: {
-        async getContract(CID) {
-            const node = await IPFS.create();
-            const stream = node.cat(CID);
-
-            let data = ''
-            for await (const chunk of stream) {
-                data += chunk.toString();
-            }
-
-            return data;
-        },
-        async checkMetamask() {
-            if (window.ethereum) {
-                await window.ethereum.send('eth_requestAccounts');
-                window.web3 = new Web3(window.ethereum);
-                return true;
-            }
-
-            return false;
-        }
+        const contract = new AuctionContractAPI(CID, address);
+        await contract.init();
+        console.log(contract);
     }
 };
 </script>
