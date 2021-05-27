@@ -36,7 +36,7 @@ export default class AuctionContractAPI {
 
         try {
             let method = 'eth_requestAccounts';
-            await window.ethereum.request({ method });
+            this.accounts = await window.ethereum.request({ method });
             this.web3 = new Web3(window.ethereum);
         } catch (error) {
             console.error(error);
@@ -84,5 +84,19 @@ export default class AuctionContractAPI {
             console.error(error);
             throw new Error('Error loading contract.');
         }
+    }
+
+    /**
+     * onBidIncreased starts to listen the contract event "HighestBidIncreased".
+     */
+    onBidIncreased() {
+        return new Promise((resolve, reject) => {
+            this.contract.events.HighestBidIncreased({ fromBlock: 0 }, (error, event) => {
+                if (error) {
+                    console.error(error);
+                    reject(new Error('Error listening "HighestBidIncreased" event.'));
+                } else resolve(event);
+            });
+        });
     }
 }
