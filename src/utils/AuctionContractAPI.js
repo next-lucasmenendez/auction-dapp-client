@@ -2,7 +2,6 @@ import Web3 from 'web3';
 import IPFS from 'ipfs';
 
 export default class AuctionContractAPI {
-
     /**
      * Assign the contract address on ethereum and the CID of the contract ABI 
      * on IPFS.
@@ -38,6 +37,7 @@ export default class AuctionContractAPI {
             let method = 'eth_requestAccounts';
             this.accounts = await window.ethereum.request({ method });
             this.web3 = new Web3(window.ethereum);
+            window.ethereum.enable();
         } catch (error) {
             console.error(error);
             throw new Error('Error getting account info');
@@ -87,16 +87,34 @@ export default class AuctionContractAPI {
     }
 
     /**
-     * onBidIncreased starts to listen the contract event "HighestBidIncreased".
+     * listenEvent allow to start to listen a the contract event.
      */
-    onBidIncreased() {
+    listenEvent(event) {
         return new Promise((resolve, reject) => {
-            this.contract.events.HighestBidIncreased({ fromBlock: 0 }, (error, event) => {
+            if (typeof this.contract.events[event] !== 'function') {
+                reject(new Error('The contract has not the requested event.'));
+            } 
+
+            this.contract.events[event]({ fromBlock: 0 }, (error, event) => {
                 if (error) {
                     console.error(error);
                     reject(new Error('Error listening "HighestBidIncreased" event.'));
                 } else resolve(event);
             });
+        });
+    }
+
+    /**
+     * onBidIncreased starts to listen the contract event "HighestBidIncreased".
+     */
+    onBidIncreased() {
+        return new Promise((resolve, reject) => {
+            this.listenEvent('HighestBidIncreased')
+                .catch(reject)
+                .then(event => {
+                    const { amount, bidder } = event.returnValues;
+                    resolve({ amount, bidder });
+                })
         });
     }
 }
