@@ -2,7 +2,9 @@
     <div>
         <AppBar/>
 
-        <router-view/>
+        <main>
+            <router-view/>
+        </main>
     </div>
 </template>
 
@@ -16,10 +18,13 @@ export default {
 </script>
 
 <style>
+    @import '@/../public/assets/fonts/benton/BentonSansBBVA.css';
+
     html > * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+        font-family: 'BentonSansBBVA';
     }
 
     :root {
@@ -29,5 +34,12 @@ export default {
         --navy: #072146;
         --purple: #8f7ae5;
         --pink: #f78be8;
+    }
+
+    main {
+        display: block;
+        margin: 80px auto;
+        width: 90%;
+        max-width: 1200px;
     }
 </style>

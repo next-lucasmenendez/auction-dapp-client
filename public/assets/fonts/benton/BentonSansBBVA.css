@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'BentonSansBBVA';
+    src: url('BentonSansBBVA-Light.eot') format('embedded-opentype'),
+        url('BentonSansBBVA-Light.woff') format('woff'),
+        url('BentonSansBBVA-Light.svg') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BentonSansBBVA';
+    src: url('BentonSansBBVA-Medium.eot') format('embedded-opentype'),
+        url('BentonSansBBVA-Medium.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BentonSansBBVA';
+    src: url('BentonSansBBVA-MediumItalic.eot') format('embedded-opentype'),
+        url('BentonSansBBVA-MediumItalic.woff2') format('woff2'),
+        url('BentonSansBBVA-MediumItalic.woff') format('woff'),
+        url('BentonSansBBVA-MediumItalic.svg') format('svg');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'BentonSansBBVA';
+    src: url('BentonSansBBVA-Bold.eot') format('embedded-opentype'),
+        url('BentonSansBBVA-Bold.svg') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BentonSansBBVA';
+    src: url('BentonSansBBVA-Book.eot') format('embedded-opentype'),
+        url('BentonSansBBVA-Book.woff') format('woff'),
+        url('BentonSansBBVA-Book.svg') format('svg');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BentonSansBBVA';
+    src: url('BentonSansBBVA-BookItalic.eot') format('embedded-opentype'),
+        url('BentonSansBBVA-BookItalic.woff2') format('woff2'),
+        url('BentonSansBBVA-BookItalic.woff') format('woff'),
+        url('BentonSansBBVA-BookItalic.svg') format('svg');
+    font-weight: 800;
+    font-style: italic;
+}

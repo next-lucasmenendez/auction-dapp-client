@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        path: '/',
+        path: '/setup',
         name: 'setup',
         component: Setup
     },
@@ -15,6 +15,10 @@ const routes = [
         path: '/panel',
         name: 'panel',
         component: () => import(/* webpackChunkName: "panel" */ '@/views/Panel.vue')
+    },
+    {
+        path: '*',
+        redirect: { name: 'setup' }
     }
 ]
 
