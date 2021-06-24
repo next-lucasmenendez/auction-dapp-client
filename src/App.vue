@@ -18,13 +18,14 @@ export default {
 </script>
 
 <style>
-    @import '@/../public/assets/fonts/benton/BentonSansBBVA.css';
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap');
 
     html > * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        font-family: 'BentonSansBBVA';
+        font-family: 'Montserrat', sans-serif;;
+        font-weight: 300;
     }
 
     :root {

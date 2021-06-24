@@ -12,9 +12,10 @@ const routes = [
         component: Setup
     },
     {
-        path: '/panel',
-        name: 'panel',
-        component: () => import(/* webpackChunkName: "panel" */ '@/views/Panel.vue')
+        path: '/auction/:CID/:address',
+        name: 'auction',
+        props: true,
+        component: () => import(/* webpackChunkName: "auction" */ '@/views/Auction.vue')
     },
     {
         path: '*',
