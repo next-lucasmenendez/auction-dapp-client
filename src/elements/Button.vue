@@ -14,7 +14,7 @@ button {
     border: 0;
     outline: 0;
     margin: 8px;
-    font-family: 'BentonSansBBVA';
-    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
 }
 </style>

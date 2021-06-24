@@ -1,5 +1,5 @@
 <template>
-    <div :style="styles">
+    <div class="setup-section">
         <Title type="h2">Auction DApp Client</Title>
         <p>Enter the auction contract metadata:</p>
 
@@ -13,7 +13,7 @@
             placeholder="Ethereum address of the auction contract" 
             v-model="contract.address" />
 
-        <Button @click="loadContract">Connect to the auction</Button>
+        <Button @click="loadContract" class="load-btn">Connect to the auction</Button>
     </div>
 </template>
 
@@ -25,11 +25,6 @@ import Button from '@/elements/Button';
 export default {
     name: 'Setup',
     data: () => ({
-        styles: {
-            'margin': '0 auto',
-            'text-align': 'center',
-            'max-width': '500px'
-        },
         contract: {
             CID: null,
             address: null
@@ -43,3 +38,16 @@ export default {
     components: { Title, Input, Button }
 }
 </script>
+
+<style scoped>
+.setup-section {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 500px;
+}
+
+.load-btn {
+    display: block;
+    margin: 20px auto;
+}
+</style>
