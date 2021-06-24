@@ -24,8 +24,8 @@ export default {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        font-family: 'Montserrat', sans-serif;;
-        font-weight: 300;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 200;
     }
 
     :root {

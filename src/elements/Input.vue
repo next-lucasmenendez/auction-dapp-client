@@ -30,7 +30,7 @@ input {
     border: none;
     border-bottom: 3px solid #bbb;
     margin: 8px;
-    font-family: 'BentonSansBBVA';
-    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
 }
 </style>
